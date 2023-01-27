@@ -1,0 +1,11 @@
+.array {
+  position: absolute;
+  left: 20%;
+}
+
+.block {
+  width: 2px;
+  background-color: blue;
+  display: inline-block;
+  margin: 0px 1px;
+}
