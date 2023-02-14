@@ -1,50 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import "./index.css";
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      array: [],
-    };
-  }
-
-  resetArray = () => {
-    const arr = [];
-    for (let i = 0; i < 310; i++) {
-      arr.push(Math.floor(Math.random() * (700 - 10 + 1) + 10));
-    }
-    this.setState({
-      array: arr,
-    });
-  };
-
-  componentDidMount() {
-    this.resetArray();
-  }
-  render() {
-    return (
-      <div className="array">
-        {this.state.array.map((value, ind) => (
-          <div
-            className="block"
-            key={ind}
-            style={{ height: `${value}px` }}
-          ></div>
-        ))}
-        <button
-          onClick={() => {
-            this.resetArray();
-          }}
-        >
-          Generate New Array
-        </button>
-      </div>
-    );
-  }
-}
-
-const root = document.getElementById("root");
-ReactDOM.render(<App />, root);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
