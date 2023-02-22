@@ -8,6 +8,7 @@ import RotateLeft from "@material-ui/icons/RotateLeft";
 import BubbleSort from "./algorithms/BubbleSort";
 import QuickSort from "./algorithms/QuickSort";
 import MergeSort from "./algorithms/MergeSort";
+import HeapSort from "./algorithms/HeapSort";
 
 class App extends Component {
     state = {
@@ -18,7 +19,7 @@ class App extends Component {
         currentStep: 0,
         count: 10,
         delay: 100,
-        algorithm: "Merge Sort",
+        algorithm: "Heap Sort",
         timeouts: [],
     };
 
@@ -26,6 +27,7 @@ class App extends Component {
         "Bubble Sort": BubbleSort,
         "Quick Sort": QuickSort,
         "Merge Sort": MergeSort,
+        "Heap Sort": HeapSort,
     };
 
     componentDidMount() {
