@@ -6,6 +6,7 @@ import Forward from "@material-ui/icons/SkipNextRounded";
 import Backward from "@material-ui/icons/SkipPreviousRounded";
 import RotateLeft from "@material-ui/icons/RotateLeft";
 import BubbleSort from "./algorithms/BubbleSort";
+import QuickSort from "./algorithms/QuickSort";
 
 class App extends Component {
     state = {
@@ -16,12 +17,13 @@ class App extends Component {
         currentStep: 0,
         count: 10,
         delay: 100,
-        algorithm: "Bubble Sort",
+        algorithm: "Quick Sort",
         timeouts: [],
     };
 
     ALGORITHMS = {
         "Bubble Sort": BubbleSort,
+        "Quick Sort": QuickSort,
     };
 
     componentDidMount() {
