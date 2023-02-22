@@ -9,6 +9,7 @@ import BubbleSort from "./algorithms/BubbleSort";
 import QuickSort from "./algorithms/QuickSort";
 import MergeSort from "./algorithms/MergeSort";
 import HeapSort from "./algorithms/HeapSort";
+import SelectionSort from "./algorithms/SelectionSort";
 
 class App extends Component {
     state = {
@@ -28,6 +29,7 @@ class App extends Component {
         "Quick Sort": QuickSort,
         "Merge Sort": MergeSort,
         "Heap Sort": HeapSort,
+        "Selection Sort": SelectionSort,
     };
 
     componentDidMount() {
@@ -60,6 +62,13 @@ class App extends Component {
         this.setState({
             colorKey: blankKey,
             colorSteps: [blankKey],
+        });
+    };
+
+    clearArraySteps = () => {
+        let blankArray = this.state.array.slice();
+        this.setState({
+            arraySteps: [blankArray],
         });
     };
 
@@ -152,6 +161,20 @@ class App extends Component {
         });
     };
 
+    algoSelect = (e) => {
+        console.log(e.target.id);
+        this.setState(
+            {
+                algorithm: e.target.id,
+                arraySteps: [this.state.array],
+                colorSteps: [this.state.colorKey],
+            },
+            () => {
+                this.generateSteps();
+            }
+        );
+    };
+
     render() {
         let bars = this.state.array.map((value, index) => (
             <Bar
@@ -167,12 +190,12 @@ class App extends Component {
 
         if (this.state.arraySteps.length === this.state.currentStep) {
             playButton = (
-                <buttone
+                <button
                     className="controller"
                     onClick={this.generateRandomArray}
                 >
                     <RotateLeft />
-                </buttone>
+                </button>
             );
         } else {
             playButton = (
@@ -184,6 +207,7 @@ class App extends Component {
 
         return (
             <div className="app">
+                <h1 className="name">{this.state.algorithm}</h1>
                 <div className="frame">
                     <div className="barsDiv container card">{bars}</div>
                 </div>
@@ -196,7 +220,43 @@ class App extends Component {
                         <Forward />
                     </button>
                 </div>
-                <div className="pannel"></div>
+                <div className="pannel">
+                    <button
+                        className="algo"
+                        id="Bubble Sort"
+                        onClick={this.algoSelect}
+                    >
+                        Bubble Sort
+                    </button>
+                    <button
+                        className="algo"
+                        id="Heap Sort"
+                        onClick={this.algoSelect}
+                    >
+                        Heap Sort
+                    </button>
+                    <button
+                        className="algo"
+                        id="Quick Sort"
+                        onClick={this.algoSelect}
+                    >
+                        Quick Sort
+                    </button>
+                    <button
+                        className="algo"
+                        id="Merge Sort"
+                        onClick={this.algoSelect}
+                    >
+                        Merge Sort
+                    </button>
+                    <button
+                        className="algo"
+                        id="Selection Sort"
+                        onClick={this.algoSelect}
+                    >
+                        Selection Sort
+                    </button>
+                </div>
             </div>
         );
     }

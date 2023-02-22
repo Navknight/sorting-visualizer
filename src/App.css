@@ -1,5 +1,8 @@
-.App {
+.app {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .frame {
@@ -50,4 +53,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.pannel {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.algo {
+    background: none;
+    border: 2px solid #95e079;
+    border-radius: 12px;
+    height: 50px;
+    width: 100px;
+}
+
+.algo:hover {
+    background-color: #818181;
+}
+
+h1{
+    font-family: sans-serif;
+    color: #819a78;
 }
