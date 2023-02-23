@@ -4,7 +4,7 @@ const heapify = (array, n, i) => {
     let largest = i;
     let left = 2 * i + 1;
     let right = 2 * i + 2;
-    
+
     if (left < n && array[left] > array[largest]) {
         largest = left;
     }
@@ -12,7 +12,7 @@ const heapify = (array, n, i) => {
         largest = right;
     }
 
-    if (largest != i) {
+    if (largest !== i) {
         swap(array, largest, i);
         heapify(array, n, largest);
     }
@@ -33,6 +33,8 @@ const hs = (array, position, arraySteps, colorSteps) => {
     }
     colorKey[0] = 2;
     colorSteps.push(colorKey.slice());
+    colorSteps[colorSteps.length - 1] = new Array(array.length).fill(2);
+    return;
 };
 
 export default hs;

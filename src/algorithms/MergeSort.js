@@ -41,12 +41,20 @@ const merge = (array, start, mid, end, arraySteps, colorSteps) => {
     while (i < left.length) {
         array[k] = left[i];
         i++;
+        arraySteps.push(array.slice());
+        colorKey[k] = 1;
+        colorSteps.push(colorKey.slice());
+        colorKey[k] = 0;
         k++;
     }
 
     while (j < right.length) {
         array[k] = right[j];
         j++;
+        arraySteps.push(array.slice());
+        colorKey[k] = 1;
+        colorSteps.push(colorKey.slice());
+        colorKey[k] = 0;
         k++;
     }
 };
